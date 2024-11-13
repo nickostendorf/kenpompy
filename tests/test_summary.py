@@ -16,7 +16,7 @@ def test_get_efficiency(browser):
 	assert [str(i) for i in df[df.Team == 'Louisville'].iloc[0].to_list()] == expected
 
 	with pytest.raises(ValueError):
-		kpsum.get_efficiency(browser, season = '2001')
+		kpsum.get_efficiency(browser, season = '1998')
 
 
 def test_get_fourfactors(browser):
@@ -27,24 +27,24 @@ def test_get_fourfactors(browser):
 	assert [str(i) for i in df[df.Team == 'Louisville'].iloc[0].to_list()] == expected
 
 	with pytest.raises(ValueError):
-		kpsum.get_fourfactors(browser, season = '2001')
+		kpsum.get_fourfactors(browser, season = '1998')
 
 
 def test_get_teamstats(browser):
 	expected = ['Louisville', 'ACC', '34.2', '177', '50.6', '161', '77.7', '8', '10.6', '272', '8.3', '101', '9.2', 
-				'128', '53.6', '122', '43.7', '56']
+				'128', '53.6', '122', '43.7', '56', '113.7', '28']
 
 	df = kpsum.get_teamstats(browser, season = '2019')
 	assert [str(i) for i in df[df.Team == 'Louisville'].iloc[0].to_list()] == expected
 
 	expected = ['Louisville', 'ACC', '32.0', '53', '46.0', '25', '69.5', '107', '7.9', '234', '6.3', '340', '9.8', 
-				'153', '47.9', '70', '37.2', '129']
+				'153', '47.9', '70', '37.2', '129', '94.4', '24']
 
 	df = kpsum.get_teamstats(browser, season = '2019', defense = True)
 	assert [str(i) for i in df[df.Team == 'Louisville'].iloc[0].to_list()] == expected
 
 	with pytest.raises(ValueError):
-		kpsum.get_teamstats(browser, season = '2001')
+		kpsum.get_teamstats(browser, season = '1998')
 
 
 def test_get_pointdist(browser):
@@ -55,7 +55,7 @@ def test_get_pointdist(browser):
 	assert [str(i) for i in df[df.Team == 'Louisville'].iloc[0].to_list()] == expected
 
 	with pytest.raises(ValueError):
-		kpsum.get_pointdist(browser, season = '2001')
+		kpsum.get_pointdist(browser, season = '1998')
 
 
 def test_get_height(browser):
